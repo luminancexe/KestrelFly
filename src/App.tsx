@@ -44,12 +44,12 @@ export const App: React.FC = () => {
       <TopBar />
 
       {/* 3. Floating Left Mission & Waypoint Panel */}
-      <div className="absolute top-20 left-4 bottom-20 pointer-events-none flex flex-col justify-start z-30">
+      <div className="absolute top-18 left-4 bottom-20 z-30 pointer-events-none flex flex-col justify-start">
         <LeftSidebar />
       </div>
 
       {/* 4. Floating Right Telemetry & Vision Deck */}
-      <div className="absolute top-20 right-4 bottom-20 pointer-events-none flex flex-col justify-start z-30">
+      <div className="absolute top-18 right-4 bottom-20 z-30 pointer-events-none flex flex-col justify-start">
         <RightTelemetryBar />
       </div>
 
