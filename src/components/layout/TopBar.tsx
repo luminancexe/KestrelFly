@@ -9,8 +9,7 @@ import {
   CloudSun, 
   Play, 
   Pause,
-  User,
-  ShieldCheck
+  User
 } from 'lucide-react';
 
 export const TopBar: React.FC = () => {
