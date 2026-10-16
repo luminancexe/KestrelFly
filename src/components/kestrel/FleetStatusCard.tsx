@@ -56,19 +56,26 @@ export const FleetStatusCard: React.FC = () => {
                 <span>Return</span>
               </button>
             ) : (
-              <div className="w-full h-7 flex items-center justify-center">
-                {/* Animated Isometric Drone Vector with Rotating Props */}
-                <div className="w-8 h-5 border border-white/30 rounded flex items-center justify-center relative">
-                  <span className="w-1 h-1 bg-kestrel-teal rounded-full shadow-[0_0_6px_#3ce6b8]" />
-                  {/* Rotor 1 */}
-                  <div className="absolute -top-1 -left-1 w-2.5 h-[1.5px] bg-white animate-spin" />
-                  {/* Rotor 2 */}
-                  <div className="absolute -top-1 -right-1 w-2.5 h-[1.5px] bg-white animate-spin" />
-                  {/* Rotor 3 */}
-                  <div className="absolute -bottom-1 -left-1 w-2.5 h-[1.5px] bg-white animate-spin" />
-                  {/* Rotor 4 */}
-                  <div className="absolute -bottom-1 -right-1 w-2.5 h-[1.5px] bg-white animate-spin" />
-                </div>
+              <div className="w-full h-8 flex items-center justify-center relative">
+                {/* 3D Isometric Drone Silhouette with Landing Skids and Rotors */}
+                <svg className="w-12 h-7" viewBox="0 0 48 28" fill="none">
+                  {/* Arms */}
+                  <line x1="8" y1="8" x2="40" y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                  <line x1="8" y1="20" x2="40" y2="8" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                  {/* Landing Skids */}
+                  <line x1="14" y1="18" x2="34" y2="18" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2" />
+                  <line x1="14" y1="23" x2="34" y2="23" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2" />
+                  <line x1="18" y1="14" x2="16" y2="18" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+                  <line x1="30" y1="14" x2="32" y2="18" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+                  {/* Fuselage Pod */}
+                  <rect x="20" y="10" width="8" height="6" rx="1.5" fill="#1c2734" stroke="#3ce6b8" strokeWidth="1" />
+                  <circle cx="24" cy="13" r="1.5" fill="#3ce6b8" />
+                  {/* 4 Rotor Discs */}
+                  <ellipse cx="8" cy="8" rx="5" ry="2" stroke="#3ce6b8" strokeWidth="0.8" fill="rgba(60,230,184,0.15)" />
+                  <ellipse cx="40" cy="8" rx="5" ry="2" stroke="#3ce6b8" strokeWidth="0.8" fill="rgba(60,230,184,0.15)" />
+                  <ellipse cx="8" cy="20" rx="5" ry="2" stroke="#3ce6b8" strokeWidth="0.8" fill="rgba(60,230,184,0.15)" />
+                  <ellipse cx="40" cy="20" rx="5" ry="2" stroke="#3ce6b8" strokeWidth="0.8" fill="rgba(60,230,184,0.15)" />
+                </svg>
               </div>
             )}
           </div>
