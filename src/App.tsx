@@ -1,60 +1,45 @@
 import React, { useEffect } from 'react';
-import { TopBar } from './components/layout/TopBar';
-import { LeftSidebar } from './components/layout/LeftSidebar';
-import { CenterViewport } from './components/layout/CenterViewport';
-import { RightTelemetryBar } from './components/layout/RightTelemetryBar';
-import { BottomDock } from './components/layout/BottomDock';
+import { TopNavigation } from './components/kestrel/TopNavigation';
+import { OceanScene } from './components/kestrel/OceanScene';
+import { LeftOverheadInfo } from './components/kestrel/LeftOverheadInfo';
+import { RightControls } from './components/kestrel/RightControls';
+import { BottomControlDeck } from './components/kestrel/BottomControlDeck';
+import { MissionReelControls } from './components/kestrel/MissionReelControls';
 import { useFlightStore } from './store/flightStore';
 
 export const App: React.FC = () => {
-  const { isSimulating, updateTelemetry, telemetry } = useFlightStore();
+  const { updateThreatLevels } = useFlightStore();
 
-  // Smooth Telemetry Simulation Loop
+  // Subtle breathing simulation for hazard levels
   useEffect(() => {
-    if (!isSimulating) return;
-
     const interval = setInterval(() => {
-      const jitterYaw = (telemetry.yaw + 0.25) % 360;
-      const jitterPitch = -3.2 + Math.sin(Date.now() / 1400) * 1.2;
-      const jitterRoll = 4.1 + Math.cos(Date.now() / 1100) * 1.8;
-      const jitterAlt = 124.6 + Math.sin(Date.now() / 2200) * 1.1;
-      const jitterSpeed = 14.8 + Math.cos(Date.now() / 1300) * 0.7;
-      const jitterCurrent = 16.4 + Math.sin(Date.now() / 900) * 0.5;
-
-      updateTelemetry({
-        yaw: jitterYaw,
-        pitch: jitterPitch,
-        roll: jitterRoll,
-        altitude: jitterAlt,
-        groundSpeed: jitterSpeed,
-        currentDraw: jitterCurrent,
-        flightTime: telemetry.flightTime + 1,
-      });
-    }, 250);
+      const hydJitter = Math.min(100, Math.max(10, 32 + Math.floor(Math.sin(Date.now() / 2000) * 4)));
+      const uraniumJitter = Math.min(100, Math.max(20, 71 + Math.floor(Math.cos(Date.now() / 1500) * 5)));
+      updateThreatLevels(hydJitter, uraniumJitter);
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [isSimulating, telemetry.yaw, telemetry.flightTime, updateTelemetry]);
+  }, [updateThreatLevels]);
 
   return (
-    <div className="relative w-screen h-screen bg-raktor-bg text-raktor-cream overflow-hidden font-sans select-none">
-      {/* 1. Fullscreen Immersive Geospatial Tactical Map */}
-      <CenterViewport />
+    <div className="relative w-screen h-screen bg-kestrel-bg text-kestrel-cream overflow-hidden font-sans select-none">
+      {/* 1. Procedural High-Performance Living Ocean & Cruising Cargo Ship Canvas */}
+      <OceanScene />
 
-      {/* 2. Floating Top Navigation Bar */}
-      <TopBar />
+      {/* 2. Top Navigation Bar (KestrelFly Brand, Tabs, Action Icons) */}
+      <TopNavigation />
 
-      {/* 3. Floating Left Mission & Waypoint Panel */}
-      <div className="absolute top-18 left-4 bottom-20 z-30 pointer-events-none flex flex-col justify-start">
-        <LeftSidebar />
-      </div>
+      {/* 3. Cinematic Mission Reel Interactive Timeline Controller */}
+      <MissionReelControls />
 
-      {/* 4. Floating Right Telemetry & Vision Deck */}
-      <div className="absolute top-18 right-4 bottom-20 z-30 pointer-events-none flex flex-col justify-start">
-        <RightTelemetryBar />
-      </div>
+      {/* 4. Left Overhead Telemetry (Battery dots, Range, Serial) */}
+      <LeftOverheadInfo />
 
-      {/* 5. Floating Bottom Command Dock */}
-      <BottomDock />
+      {/* 5. Right Controls (Smooth Camera Zoom Pill & Dual Radar Dials) */}
+      <RightControls />
+
+      {/* 6. Master Bottom Control Deck (USV Boat, 10 Mission Modes, Fleet Squad) */}
+      <BottomControlDeck />
     </div>
   );
 };
