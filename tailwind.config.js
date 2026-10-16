@@ -7,31 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        // RonDesignLab "Raktor" Official Palette
-        raktor: {
-          bg: "#06080C",
-          surface: "#0D1118",
-          card: "rgba(14, 18, 26, 0.82)",
-          cardHover: "rgba(20, 26, 38, 0.95)",
-          border: "rgba(255, 255, 255, 0.07)",
-          borderHover: "rgba(255, 255, 255, 0.15)",
-          borderOrange: "rgba(234, 88, 12, 0.35)",
-          
-          // Accent Tones: Warm Cream & Rust/Burnt Orange
-          cream: "#FCF4EA",
-          creamMuted: "#C5BCB2",
-          creamDark: "#857D74",
-          
-          orange: "#EA580C",
-          orangeBright: "#F97316",
-          orangeGlow: "rgba(234, 88, 12, 0.25)",
-          orangeDark: "#9A3412",
-
-          // Operational Status Indicators
-          emerald: "#10B981",
-          amber: "#F59E0B",
-          rose: "#EF4444",
-          cyan: "#38BDF8",
+        kestrel: {
+          bg: "#0B1118",
+          card: "rgba(16, 23, 33, 0.82)",
+          cardSolid: "#101721",
+          border: "rgba(255, 255, 255, 0.08)",
+          borderHover: "rgba(255, 255, 255, 0.18)",
+          teal: "#3CE6B8",
+          tealGlow: "rgba(60, 230, 184, 0.25)",
+          orange: "#FF6633",
+          orangeGlow: "rgba(255, 102, 51, 0.35)",
+          red: "#FF3B30",
+          cream: "#E8EDF5",
+          muted: "#7D8C9E",
+          dark: "#080D12",
         }
       },
       fontFamily: {
@@ -40,9 +29,9 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'raktor-card': '0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06)',
-        'raktor-glow': '0 0 24px -2px rgba(234, 88, 12, 0.35)',
-        'raktor-dock': '0 16px 40px -6px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)',
+        'kestrel-glow': '0 0 24px -2px rgba(60, 230, 184, 0.35)',
+        'kestrel-card': '0 16px 40px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06)',
+        'hazard-glow': '0 0 32px 0 rgba(255, 102, 51, 0.45)',
       }
     },
   },

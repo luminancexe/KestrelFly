@@ -4,38 +4,74 @@
 
 @layer base {
   body {
-    background-color: #06080C;
-    color: #FCF4EA;
+    background-color: #0b1118;
+    color: #e8edf5;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 }
 
-/* RonDesignLab Raktor Glass Cards */
-.raktor-panel {
-  background: rgba(14, 18, 27, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* KestrelFly Glass Panels */
+.kestrel-panel {
+  background: rgba(14, 21, 31, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-.raktor-panel-elevated {
-  background: rgba(18, 23, 34, 0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 48px -6px rgba(0, 0, 0, 0.85), 0 0 20px -4px rgba(234, 88, 12, 0.15);
+.kestrel-panel-active {
+  background: rgba(18, 27, 40, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(60, 230, 184, 0.35);
+  box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.75), 0 0 20px -2px rgba(60, 230, 184, 0.2);
 }
 
-/* Subtle Tactical Map Grid */
-.raktor-map-grid {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Nuclear Danger Hazard Card */
+.hazard-panel {
+  background: linear-gradient(145deg, rgba(32, 18, 18, 0.92) 0%, rgba(20, 12, 14, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 102, 51, 0.35);
+  box-shadow: 0 20px 48px -6px rgba(0, 0, 0, 0.8), 0 0 30px -4px rgba(255, 102, 51, 0.3);
 }
 
-/* Precision Scrollbars */
+/* Spinning Atom Animation */
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinOrbit1 {
+  0% { transform: rotateX(65deg) rotateY(20deg) rotateZ(0deg); }
+  100% { transform: rotateX(65deg) rotateY(20deg) rotateZ(360deg); }
+}
+
+@keyframes spinOrbit2 {
+  0% { transform: rotateX(65deg) rotateY(-50deg) rotateZ(0deg); }
+  100% { transform: rotateX(65deg) rotateY(-50deg) rotateZ(360deg); }
+}
+
+@keyframes spinOrbit3 {
+  0% { transform: rotateX(25deg) rotateY(70deg) rotateZ(0deg); }
+  100% { transform: rotateX(25deg) rotateY(70deg) rotateZ(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.animate-orbit-1 {
+  animation: spinOrbit1 4s linear infinite;
+}
+
+.animate-orbit-2 {
+  animation: spinOrbit2 5s linear infinite reverse;
+}
+
+.animate-orbit-3 {
+  animation: spinOrbit3 6s linear infinite;
+}
+
+/* Precision scrollbars */
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
@@ -48,8 +84,4 @@
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(234, 88, 12, 0.5);
 }
